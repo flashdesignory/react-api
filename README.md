@@ -1,5 +1,5 @@
 # react-api
-Starter Project - with webpack and HMR
+Simple frontend for express-api for testing purposes
 
 ## external json version
 simple external data file
