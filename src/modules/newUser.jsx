@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './newUser.scss';
 
 class NewUser extends Component{
@@ -47,6 +48,14 @@ class NewUser extends Component{
       </div>
     )
   }
+}
+
+NewUser.defaultProps = {
+  createOne: () => {}
+}
+
+NewUser.propTypes = {
+  createOne: PropTypes.func
 }
 
 export default NewUser;

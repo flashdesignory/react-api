@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './user.scss';
 
 class User extends Component{
@@ -47,10 +48,6 @@ class User extends Component{
       lastName: this.props.last_name
     })
   }
-
-  componentWillReceiveProps(){
-
-  }
   render(){
     return (
       <div className="user-container">
@@ -63,6 +60,22 @@ class User extends Component{
       </div>
     )
   }
+}
+
+User.defaultProps = {
+  deleteOne: () => {},
+  updateOne: () => {},
+  first_name: "",
+  last_name: "",
+  id: ""
+}
+
+User.propTypes = {
+  updateOne: PropTypes.func,
+  deleteOne: PropTypes.func,
+  first_name: PropTypes.string,
+  last_name: PropTypes.string,
+  id: PropTypes.string
 }
 
 export default User;

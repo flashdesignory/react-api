@@ -20,8 +20,16 @@ const List = (props) => {
   )
 }
 
+List.defaultProps = {
+  users: [],
+  deleteOne: () => {},
+  updateOne: () => {}
+}
+
 List.propTypes = {
-  users: PropTypes.array
+  users: PropTypes.array,
+  deleteOne: PropTypes.func,
+  updateOne: PropTypes.func
 }
 
 export default List;
