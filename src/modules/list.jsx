@@ -4,18 +4,32 @@ import PropTypes from 'prop-types';
 import User from './user';
 import './list.scss';
 
+import Preloader from './preloader';
+
 const List = (props) => {
-  return (
-    <div className="list-container">
+  const displayList = () => {
+    return (
       <ul>
         { props.users.map(user => {
           return (
             <li key={user.id}>
-              <User {...user} deleteOne={props.deleteOne} updateOne={props.updateOne}/>
+              <User {...user}
+                deleteOne={props.deleteOne}
+                updateOne={props.updateOne}/>
             </li>
           )
         })}
       </ul>
+    )
+  }
+  const displayPreloader = () => {
+    return (
+      <Preloader />
+    )
+  }
+  return (
+    <div className="list-container">
+      { props.users.length > 0 ? displayList() : displayPreloader() }
     </div>
   )
 }
