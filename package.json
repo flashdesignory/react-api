@@ -8,6 +8,10 @@
     "dev": "node scripts/dev.js"
   },
   "author": "Thorsten Kober",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flashdesignory/react-api"
+  },
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
