@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import '../fonts.scss';
 import './user.scss';
 
 class User extends Component{
@@ -26,6 +27,8 @@ class User extends Component{
     })
   }
   deleteOne(e){
+    e.preventDefault();
+    console.log("deleting");
     this.props.deleteOne(this.props.id);
   }
   updateOne(e){
@@ -35,6 +38,8 @@ class User extends Component{
       console.log("nothing changed");
       return;
     }
+
+    console.log("submitting");
 
     this.props.updateOne({
       "id":this.props.id,
@@ -54,8 +59,8 @@ class User extends Component{
         <form className="user" onSubmit={ this.handleOnSubmit }>
           <input className="field first-name" type="text" placeholder="First Name" onChange={this.handleFirstNameChange} value={this.state.firstName}/>
           <input className="field last-name" type="text" placeholder="Last Name" onChange={this.handleLastNameChange} value={this.state.lastName}/>
-          <input className="button update" type="submit" value="u" onClick={this.updateOne}/>
-          <button className="button delete" onClick={this.deleteOne}>x</button>
+          <button className="button update" type="submit" onClick={this.updateOne}><span className="icon-refresh"></span></button>
+          <button className="button delete" onClick={this.deleteOne}><span className="icon-cancel"></span></button>
         </form>
       </div>
     )

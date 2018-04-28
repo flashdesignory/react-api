@@ -46,6 +46,7 @@ class App extends Component{
   }
   updateOne(user){
     api.updateOne(user).then(res => {
+      console.log("updated user");
       this.updateUsers(res.data);
     })
     .catch(err => {
@@ -54,6 +55,7 @@ class App extends Component{
   }
   deleteOne(id){
     api.deleteOne(id).then(res => {
+      console.log("deleted user");
       this.updateUsers(res.data);
     })
     .catch(err => {
