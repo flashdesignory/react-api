@@ -7,43 +7,42 @@ import './list.scss';
 import Preloader from './preloader';
 
 const List = (props) => {
-  const displayList = () => {
-    return (
-      <ul>
-        { props.users.map(user => {
-          return (
-            <li key={user.id}>
-              <User {...user}
-                deleteOne={props.deleteOne}
-                updateOne={props.updateOne}/>
-            </li>
-          )
-        })}
-      </ul>
-    )
-  }
-  const displayPreloader = () => {
-    return (
-      <Preloader />
-    )
-  }
+  const { users, deleteOne, updateOne } = props;
+  const displayList = () => (
+    <ul>
+      { users.map(user => (
+        <li key={user.id}>
+          <User
+            id={user.id}
+            first={user.first_name}
+            last={user.last_name}
+            deleteOne={deleteOne}
+            updateOne={updateOne}
+          />
+        </li>
+      ))}
+    </ul>
+  );
+  const displayPreloader = () => (
+    <Preloader />
+  );
   return (
     <div className="list-container">
-      { props.users.length > 0 ? displayList() : displayPreloader() }
+      { users.length > 0 ? displayList() : displayPreloader() }
     </div>
-  )
-}
+  );
+};
 
 List.defaultProps = {
   users: [],
   deleteOne: () => {},
-  updateOne: () => {}
-}
+  updateOne: () => {},
+};
 
 List.propTypes = {
-  users: PropTypes.array,
+  users: PropTypes.array, // eslint-disable-line react/forbid-prop-types
   deleteOne: PropTypes.func,
-  updateOne: PropTypes.func
-}
+  updateOne: PropTypes.func,
+};
 
 export default List;
