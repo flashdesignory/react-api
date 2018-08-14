@@ -1,0 +1,68 @@
+@import 'colors';
+@import 'fonts';
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .input {
+    display: block;
+    font-size: 16px;
+    text-align: center;
+    width: 48%;
+    padding: 5px 1px;
+    background: none;
+    background-image: none;
+    border: 1px solid $input-border-default-color;
+    color: $input-default-color;
+    border-radius: 0;
+    margin-bottom: 20px;
+    &:focus {
+      outline: 0;
+    }
+    &.submit {
+      background-color: $input-border-default-color;
+      border-color: transparent;
+      cursor: pointer;
+      margin-bottom: 0px;
+      &:hover {
+        color: $input-active-color;
+      }
+      &:disabled {
+        pointer-events: none;
+      }
+    }
+  }
+  &.new,
+  &.dog,
+  &.user {
+    flex-direction: row;
+    .input {
+      flex: 1;
+      margin-bottom: 0;
+      &.submit,
+      &.button {
+        flex: 0.5;
+      }
+    }
+    .button {
+      flex: 0;
+      width: auto;
+      padding: 5px;
+      margin-left: 5px;
+      outline: none;
+    }
+  }
+}
+
+.error-message {
+  color: #ff0000;
+  text-align: center;
+  padding: 20px 0;
+}

@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { MemoryRouter } from 'react-router-dom';
 import './index.scss';
-import App from './app';
+import App from './App';
 
 import initResize from './utils/resize';
 import initMobile from './utils/mobile';
@@ -12,5 +13,8 @@ initMobile();
 initHover();
 
 ReactDOM.render(
-  <App />, document.getElementById('root'),
+  <MemoryRouter>
+    <App />
+  </MemoryRouter>,
+  document.getElementById('root'),
 );

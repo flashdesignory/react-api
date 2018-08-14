@@ -1,0 +1,21 @@
+@import '../../colors';
+
+.button {
+  color: $link-default-color;
+  background-color: $button-default-color;
+  text-decoration: none;
+  padding: 10px 0;
+  cursor: pointer;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  display: block;
+  width: 100%;
+  &:hover {
+    color: $link-active-color;
+    background-color: $button-active-color;
+  }
+  .label {
+    pointer-events: none;
+  }
+}

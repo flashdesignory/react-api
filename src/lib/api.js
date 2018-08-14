@@ -1,21 +1,21 @@
 import axios from 'axios';
 
-const url = 'https://express-api-json.herokuapp.com/user/';
+const url = 'https://express-api-mongo.herokuapp.com/';
 
 export default {
-  getAll() {
-    return axios.get(url);
+  getAll(route) {
+    return axios.get(`${url}${route}`);
   },
-  getOne(id) {
-    return axios.get(`${url}${id}`);
+  getOne(route, id) {
+    return axios.get(`${url}${route}${id}`);
   },
-  createOne(user) {
-    return axios.post(`${url}`, user);
+  createOne(route, user) {
+    return axios.post(`${url}${route}`, user);
   },
-  updateOne(user) {
-    return axios.put(`${url}${user.id}`, user);
+  updateOne(route, user) {
+    return axios.put(`${url}${route}${user.id}`, user);
   },
-  deleteOne(id) {
-    return axios.delete(`${url}${id}`);
+  deleteOne(route, id) {
+    return axios.delete(`${url}${route}${id}`);
   },
 };

@@ -1,0 +1,30 @@
+@import '../../colors';
+
+.navigation {
+  display: flex;
+  width: 100%;
+  ul {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    li {
+      flex-grow: 1;
+      a {
+        display: block;
+        color: $link-default-color;
+        background-color: $button-default-color;
+        text-decoration: none;
+        padding: 10px 0;
+        &:hover,
+        &.active {
+          color: $link-active-color;
+          background-color: $button-active-color;
+        }
+      }
+    }
+  }
+}
