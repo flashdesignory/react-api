@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import auth from '../lib/auth';
 import './LoginPage.scss';
-
-const validUser = 'admin';
-const validPassword = 'admin';
 
 class LoginPage extends Component {
   state = {
@@ -23,16 +21,34 @@ class LoginPage extends Component {
         error: 'please enter a username and password',
         enabled: false,
       });
-    } else if (username === validUser && password === validPassword) {
-      updateStatus(true);
-    } else {
-      this.setState({
-        username: '',
-        password: '',
-        error: 'username or password do not match',
-        enabled: false,
-      });
     }
+    auth
+      .signin({ username, password })
+      .then((res) => {
+        if (res.data.token) {
+          // console.log(`token: ${res.data.token}`);
+          localStorage.setItem('token', res.data.token);
+          updateStatus(true);
+        } else {
+          this.setState({
+            username: '',
+            password: '',
+            error: 'username or password do not match',
+            enabled: false,
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+
+        this.setState({
+          username: '',
+          password: '',
+          error: 'username or password do not match',
+          enabled: false,
+        });
+      });
+
     e.preventDefault();
   };
 

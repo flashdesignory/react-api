@@ -15,6 +15,7 @@ class App extends Component {
   updateStatus = (loggedIn) => {
     const { history } = this.props;
     if (loggedIn) history.push('/dog');
+    else localStorage.removeItem('token');
     this.setState({ loggedIn });
   };
 
